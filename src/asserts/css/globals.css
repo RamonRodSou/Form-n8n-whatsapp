@@ -1,0 +1,32 @@
+@import "tailwindcss";
+
+:root {
+  --background: linear-gradient(135deg, #fce4ec 0%, #f8bbd0 50%, #f48fb1 80%);
+  --foreground: linear-gradient(135deg, #fce4ec 0%, #f8bbd0 50%, #f48fb1 80%);
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --font-sans: var(--font-geist-sans);
+  --font-mono: var(--font-geist-mono);
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --background: linear-gradient(135deg, #fce4ec 0%, #f8bbd0 50%, #f48fb1 80%);
+    --foreground: linear-gradient(135deg, #fce4ec 0%, #f8bbd0 50%, #f48fb1 80%);
+  }
+}
+
+body {
+  background:
+    linear-gradient(135deg, rgba(252, 228, 236, 0.526) 0%, rgba(248, 187, 208, 0.641) 50%, rgba(244, 143, 177, 0.526) 80%),
+    url("../img/mulheres.jpeg");
+
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  color: var(--foreground);
+  font-family: Arial, Helvetica, sans-serif;
+}
