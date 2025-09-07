@@ -10,7 +10,7 @@ import { Guest } from '@classes/guest';
 import { sanitize, validateForm } from '@utils/validate';
 import { Errors } from '@utils/IError';
 import { SendFormToN8n } from '@services/N8NConection';
-import { findAllLots, findByLottId } from '@services/LotService';
+import { findAllLots } from '@services/LotService';
 
 export default function TicketForm() {
     const [lots, setLots] = useState<Lot[]>([]);
