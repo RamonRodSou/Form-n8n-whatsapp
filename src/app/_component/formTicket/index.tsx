@@ -11,11 +11,12 @@ import { sanitize, validateForm } from '@utils/validate';
 import { Errors } from '@utils/IError';
 import { SendFormToN8n } from '@services/N8NConection';
 import { findAllLots } from '@services/LotService';
+import { EMPTY } from "@utils/string"
 
 export default function TicketForm() {
     const [lots, setLots] = useState<Lot[]>([]);
     const [loading, setLoading] = useState(false);
-    const [selectedLotId, setSelectedLotId] = useState<string>("");
+    const [selectedLotId, setSelectedLotId] = useState<string>(EMPTY);
     const [quantity, setQuantity] = useState<number>(1);
     const [successMsg, setSuccessMsg] = useState<string | null>(null)
     const [errors, setErrors] = useState<Errors>({});
@@ -31,8 +32,8 @@ export default function TicketForm() {
     function formatForm(form: Guest): Guest {
         return Guest.fromJson({
             ...form,
-            name: sanitize(String(form.name ?? '')),
-            phone: String(form.phone ?? '').replace(/\D/g, ''),
+            name: sanitize(String(form.name ?? EMPTY)),
+            phone: String(form.phone ?? EMPTY).replace(/\D/g, EMPTY),
             birthdate: form.birthdate ? dayjs(form.birthdate).toISOString() : null,
         });
     }

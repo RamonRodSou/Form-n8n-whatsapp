@@ -23,7 +23,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
+    <html lang="pt-br">
       <head>
         <link rel="icon" type="image/svg+xml" href="/logo-iaf.webp" />
         <link rel="icon" href="/logo-iaf.webp" type="image/webp" sizes="32x32" />

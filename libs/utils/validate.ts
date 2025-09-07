@@ -1,11 +1,12 @@
 import dayjs from "dayjs";
 import { Errors } from "./IError";
 import { Guest } from "@classes/guest";
+import { EMPTY } from "./string";
 
 const phoneDigitsRegex = /^[0-9]{8,11}$/;
 
 export function sanitize(input: string): string {
-    return input.replace(/<[^>]*>?/gm, '').trim();
+    return input.replace(/<[^>]*>?/gm, EMPTY).trim();
 }
 
 export function validatePhone(phone: string): boolean {
@@ -20,7 +21,7 @@ export function validateForm(entity: Guest, quantity?: number): Errors {
         error.name = 'Nome inválido (mínimo 2 caracteres).';
     }
 
-    const phone = String(entity.phone ?? '').replace(/\D/g, '');
+    const phone = String(entity.phone ?? EMPTY).replace(/\D/g, EMPTY);
     if (!phoneDigitsRegex.test(phone)) {
         error.phone = 'Telefone deve conter de 9 a 11 dígitos.';
     }
