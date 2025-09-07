@@ -1,5 +1,5 @@
-import { addDoc, collection, doc, getDoc, getDocs } from "firebase/firestore";
-import { auth, db } from "./firebase";
+import { collection, doc, getDoc, getDocs } from "firebase/firestore";
+import { db } from "./firebase";
 import { Lot } from "@classes/lot";
 
 
