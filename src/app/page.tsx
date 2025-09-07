@@ -1,3 +1,4 @@
+"use client";
 import '@css/index.scss'
 import FormTicket from "./_component/formTicket";
 
