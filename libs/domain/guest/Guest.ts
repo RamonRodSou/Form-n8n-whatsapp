@@ -8,7 +8,7 @@ export class Guest {
         public name: string = EMPTY,
         public phone: string = EMPTY,
         public birthdate: Date | null = null,
-        public lotId: string = EMPTY,
+        public lotId: string | null = null,
         public isActive: boolean = true,
         public createdAt: string = new Date().toISOString(),
 

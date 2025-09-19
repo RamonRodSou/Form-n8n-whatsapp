@@ -65,8 +65,7 @@ export default function TicketForm() {
         setLoading(true);
         setSuccessMsg(null);
 
-        const lot = lots.find(l => l.id === selectedLotId);
-        form.lotId = lot ? lot.name : "Lot 1";
+        form.lotId = selectedLotId;
 
         const formattedForm = formatForm(form);
         const errors = validateFormData(formattedForm, quantity);
@@ -86,12 +85,13 @@ export default function TicketForm() {
             const availableLots = await findAllLots();
             setLots(availableLots);
 
-            if (availableLots.length === 0) {
-                console.log("Nenhum lote disponível ainda.");
-            } else {
-                setSelectedLotId(availableLots[0].id);
-            }
+            const lot = availableLots
+                .sort((a, b) => a.price - b.price)
+                .filter((it) => it.isActive)[0].name;
+
+            setSelectedLotId(lot);
         }
+
         initLots();
     }, []);
 
